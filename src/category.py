@@ -31,7 +31,6 @@ class Category:
         else:
             raise TypeError("Невозможно добавить указанный продукт в категорию")
 
-
     @property
     def products(self) -> str:
         """Функция с методом геттера для получения списка продуктов"""

@@ -1,3 +1,5 @@
+import pytest
+
 from src.category import Category
 
 
@@ -16,3 +18,11 @@ def test_add_product(first_category, forth_product):  # передаём fixture
 
     assert "Xiaomi" in first_category.products
     assert Category.product_count == 3
+
+
+def test_add_product_incorrect_product(first_category):
+    assert Category.product_count == 2
+    with pytest.raises(TypeError, match="Невозможно добавить указанный продукт в категорию"):
+        first_category.add_product(["name", "Realme 12 Pro", "description",
+                                    "128GB, Синий цвет", "price", 25000.0, "quantity", 3])
+    assert Category.product_count == 2

@@ -1,6 +1,6 @@
 import pytest
 
-from src.category import Category
+from src.category import Category, ProductIterator
 
 
 def test_category_init(first_category, first_product, second_product):  # передаём fixtures из conftest.py
@@ -26,3 +26,14 @@ def test_add_product_incorrect_product(first_category):
         first_category.add_product(["name", "Realme 12 Pro", "description",
                                     "128GB, Синий цвет", "price", 25000.0, "quantity", 3])
     assert Category.product_count == 2
+
+
+def test_product_str(first_category):
+    assert str(first_category) == "Смартфоны, количество продуктов: 13 шт."
+
+
+def test_product_iterator(first_category, first_product, second_product):
+    iterator = ProductIterator(first_category)
+
+    products = list(iterator)
+    assert products == [first_product, second_product]

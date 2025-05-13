@@ -24,6 +24,10 @@ class Product:
             raise ValueError("Количество не может быть отрицательным или равным нулю")
         self.quantity = quantity
 
+    def __str__(self) -> str:
+        """Функция, предоставляющая строковое отображение названия продукта, цены и количества"""
+        return f'{self.name}, {self.__price} руб. Остаток: {self.quantity} шт.\n'
+
     @classmethod
     def new_product(cls, product_dict: dict) -> Any:
         """Класс-метод создающий новый продукт на основе словаря"""
@@ -70,3 +74,10 @@ class Product:
                 self.__price = new_price
         else:
             self.__price = new_price
+
+    def __add__(self, other) -> float:
+        """Функция, предоставляющая строковое отображение категории и общего количества продуктов"""
+        if type(other) is Product:
+            full_cost = self.__price * self.quantity + other.__price * other.quantity
+            return full_cost
+        raise TypeError(f"Невозможно сложить объекты разных типов: {type(self)} и {type(other)}")

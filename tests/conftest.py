@@ -85,3 +85,29 @@ def json_for_test():
     ]
   }
 ]
+
+
+@pytest.fixture(autouse=True)
+def reset_category_counters():  # сброс счётчиков
+    Category.category_count = 0
+    Category.product_count = 0
+
+
+@pytest.fixture
+def forth_product():
+    return Product(
+        name="Xiaomi Redmi Note 11",
+        description="024GB, Синий",
+        price=31000.0,
+        quantity=14
+    )
+
+
+@pytest.fixture
+def product_dict():
+    return {
+        "name": "Realme 12 Pro",
+        "description": "128GB, Синий цвет",
+        "price": 25000.0,
+        "quantity": 3
+    }

@@ -95,3 +95,17 @@ def test_price_lower_price_no(forth_product, monkeypatch):
 def test_price_higher_price(forth_product):
     forth_product.price = 33000.0
     assert forth_product.price == 33000.0  # цена изменилась без вопросов
+
+
+def test_product_str(first_product):
+    assert str(first_product) == "Samsung Galaxy S23 Ultra, 180000.0 руб. Остаток: 5 шт.\n"
+
+
+def test_product_add(first_product, second_product):
+    assert first_product + second_product == 2580000.0
+
+
+def test_wrong_product_add(first_product, first_category):
+    with pytest.raises(TypeError) as exc_info:
+        result = first_product + first_category
+    assert "Невозможно сложить объекты разных типов:" in str(exc_info.value)

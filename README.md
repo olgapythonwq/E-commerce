@@ -31,6 +31,8 @@
 Созданы классы:
 - Product. Свойства: название (name), описание (description), цена (price), количество в наличии (quantity).
 - Category. Свойства: название (name), описание (description), список товаров категории (products).
+- Smartphone класс наследник от Product, расширен атрибутами: производительность (efficiency), модель (model), объем встроенной памяти (memory), цвет (color).
+- LawnGrass класс наследник от Product, расширен атрибутами: страна-производитель (country), срок прорастания (germination_period), цвет (color).
 
 
 - Функция, загружающая данные из json-файла

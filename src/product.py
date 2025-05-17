@@ -75,9 +75,9 @@ class Product:
         else:
             self.__price = new_price
 
-    def __add__(self, other) -> float:
+    def __add__(self, other: Any) -> float:
         """Функция, предоставляющая строковое отображение категории и общего количества продуктов"""
-        if type(other) is Product:
+        if isinstance(other, Product):
             full_cost = self.__price * self.quantity + other.__price * other.quantity
             return full_cost
         raise TypeError(f"Невозможно сложить объекты разных типов: {type(self)} и {type(other)}")

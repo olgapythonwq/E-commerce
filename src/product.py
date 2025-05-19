@@ -1,7 +1,10 @@
 from typing import Any
 
+from src.base_product import BaseProduct
+from src.print_mixin import PrintMixin
 
-class Product:
+
+class Product(BaseProduct, PrintMixin):
     """Класс для описания продуктов"""
     # Атрибуты экземпляра:
     name: str
@@ -23,6 +26,7 @@ class Product:
         if quantity <= 0:
             raise ValueError("Количество не может быть отрицательным или равным нулю")
         self.quantity = quantity
+        super().__init__()
 
     def __str__(self) -> str:
         """Функция, предоставляющая строковое отображение названия продукта, цены и количества"""

@@ -1,6 +1,7 @@
 import pytest
 from src.category import Category
 from src.lawngrass import LawnGrass
+from src.order import Order
 from src.product import Product
 from src.smartphone import Smartphone
 
@@ -163,3 +164,7 @@ def second_lawngrass():
         germination_period="5 дней",
         color="Темно-зеленый"
     )
+
+@pytest.fixture
+def first_order(first_smartphone):
+    return Order(first_smartphone, quantity=2)

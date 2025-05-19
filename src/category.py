@@ -1,9 +1,10 @@
 from typing import Iterator, List, Optional
 
+from src.base_entity import BaseEntity
 from src.product import Product
 
 
-class Category:
+class Category(BaseEntity):
     """Класс для описания категорий товаров"""
     # Атрибуты экземпляра:
     name: str
@@ -22,6 +23,7 @@ class Category:
 
         Category.category_count += 1
         Category.product_count += len(self.__products)
+        super().__init__()
 
     def __str__(self) -> str:
         """Функция, предоставляющая строковое отображение категории и общего количества продуктов"""

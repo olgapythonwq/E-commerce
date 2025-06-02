@@ -168,3 +168,13 @@ def second_lawngrass():
 @pytest.fixture
 def first_order(first_smartphone):
     return Order(first_smartphone, quantity=2)
+
+
+@pytest.fixture
+def category_without_product(): # type: ignore
+    return Category(
+        name="Телевизоры",
+        description="Современный телевизор, который позволяет наслаждаться просмотром, "
+        "станет вашим другом и помощником",
+        products=[],
+    )

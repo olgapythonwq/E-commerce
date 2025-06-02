@@ -24,7 +24,7 @@ class Product(BaseProduct, PrintMixin):
         self.__price = price
 
         if quantity <= 0:
-            raise ValueError("Количество не может быть отрицательным или равным нулю")
+            raise ValueError("Товар с нулевым количеством не может быть добавлен")
         self.quantity = quantity
         super().__init__()
 

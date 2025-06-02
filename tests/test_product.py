@@ -19,7 +19,7 @@ def test_product_init_with_negative_price():
 def test_product_init_with_negative_quantity():
     with pytest.raises(ValueError) as exc_info:
         Product("Very bad Product", "This is a very bad product", 10, -5)
-    assert str(exc_info.value) == "Количество не может быть отрицательным или равным нулю"
+    assert str(exc_info.value) == "Товар с нулевым количеством не может быть добавлен"
 
 
 def test_new_product_from_dict(product_dict):

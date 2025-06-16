@@ -37,3 +37,7 @@ def test_product_iterator(first_category, first_product, second_product):
 
     products = list(iterator)
     assert products == [first_product, second_product]
+
+def test_middle_price(first_category, category_without_product):  # type: ignore
+    assert first_category.middle_price() == 195000.00
+    assert category_without_product.middle_price() == 0

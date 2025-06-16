@@ -53,6 +53,14 @@ class Category(BaseEntity):
         """Функция-геттер, которая возвращает список продуктов, как объектов класса"""
         return self.__products
 
+    def middle_price(self) -> float:
+        """Функция, возвращающая среднюю цену товаров в категории"""
+        try:
+            avg_price = sum([product.price for product in self.__products]) / len(self.__products)
+            return round(avg_price, 2)
+        except ZeroDivisionError:
+            return 0
+
 
 class ProductIterator (Iterator):
     """Вспомогательный класс для перебора продуктов в заданной категории"""
